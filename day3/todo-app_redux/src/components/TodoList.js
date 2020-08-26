@@ -24,7 +24,6 @@ class TodoList extends Component {
   }
 }
 
-
 const mapDispatchToProps = dispatch => ({
     handleRemoveTodo: id => dispatch(removeTodoAction(id)),
 });

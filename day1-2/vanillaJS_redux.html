@@ -68,12 +68,7 @@
       const text = document.createTextNode(todo.name)
 
       const removeBtn = createRemoveButton(() => {
-        store.dispatch({
-        type: "REMOVE_TODO",
-        id: todo.id,
-      })
-
-       // store.dispatch(removeTodoAction(todo.id))
+        store.dispatch(removeTodoAction(todo.id))
       })
 
       node.appendChild(text)
@@ -90,15 +85,10 @@
           name: name
       }
       
-      store.dispatch({
-        type: "ADD_TODO",
-        todo,
-      })
-
-    /*  store.dispatch(addTodoAction({
+    store.dispatch(addTodoAction({
         id: generateId(),
         name
-      }))*/      
+      }))    
     }
 
     document.getElementById('todoBtn')
