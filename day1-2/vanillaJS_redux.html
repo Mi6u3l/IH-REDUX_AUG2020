@@ -85,10 +85,8 @@
           name: name
       }
       
-    store.dispatch(addTodoAction({
-        id: generateId(),
-        name
-      }))    
+    store.dispatch(addTodoAction(todo))
+    
     }
 
     document.getElementById('todoBtn')
