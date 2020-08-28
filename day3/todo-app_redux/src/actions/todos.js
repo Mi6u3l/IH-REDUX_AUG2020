@@ -1,4 +1,4 @@
-import { ADD_TODO, UPDATE_TODO, REMOVE_TODO } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "./actionTypes";
 
 export function addTodoAction(todo) {
     return {
@@ -11,5 +11,12 @@ export function removeTodoAction(id) {
     return {
         type: REMOVE_TODO,
         id,
+    }
+  }
+
+export function toggleTodoAction(todo) {
+    return {
+        type: TOGGLE_TODO,
+        todo,
     }
   }
