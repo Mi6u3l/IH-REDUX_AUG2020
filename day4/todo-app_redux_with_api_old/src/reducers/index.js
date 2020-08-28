@@ -1,8 +1,7 @@
 import { combineReducers } from "redux";
 import todos from "./todos";
-import loggedUser from "./loggedUser";
 
+// Could add more reducers here:
 export default combineReducers({
-    todos,
-    loggedUser
+    todos
   });

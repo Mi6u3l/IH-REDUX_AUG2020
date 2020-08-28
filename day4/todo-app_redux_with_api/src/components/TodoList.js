@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { removeTodoAction, toggleTodoAction } from "../actions/todos";
+import { removeTodoFromAPI, getTodosFromAPI, toggleTodoOnAPI } from "../actions/todos";
 
 class TodoList extends Component {
+
+componentDidMount() {
+  this.props.handleRetrieveTodos();
+}
 
  removeTodo = (todoId) => {
     this.props.handleRemoveTodo(todoId);
@@ -18,7 +22,7 @@ class TodoList extends Component {
       return (
         <ul>
           {this.props.todos.map((todo)=>{
-            return <li key={todo.id}>
+            return <li key={todo._id}>
             <span 
             style={{
               textDecoration: todo.completed ? 'line-through' : 'none'
@@ -26,7 +30,7 @@ class TodoList extends Component {
               onClick={() => this.toggleTodo(todo)}>
               {todo.name}
             </span>
-            <button onClick={() => this.removeTodo(todo.id)}>X</button>
+            <button onClick={() => this.removeTodo(todo._id)}>X</button>
             </li>
           })}
         </ul>
@@ -39,8 +43,9 @@ class TodoList extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    handleRemoveTodo: id => dispatch(removeTodoAction(id)),
-    handleToggleTodo: todo => dispatch(toggleTodoAction(todo))
+    handleRemoveTodo: id => dispatch(removeTodoFromAPI(id)),
+    handleToggleTodo: todo => dispatch(toggleTodoOnAPI(todo)),
+    handleRetrieveTodos: () => dispatch(getTodosFromAPI()),
 });
 
 const mapStateToProps = state => {
