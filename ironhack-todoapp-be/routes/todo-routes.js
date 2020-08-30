@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Todo = require('../models/todo-model');
 
 
-//GET route => to get all todos
+//GET route => to get all the projects
 router.get('/todos', (req, res) => {
   // Gets data from mongoDB
   Todo.find()
@@ -19,7 +19,7 @@ router.get('/todos', (req, res) => {
 });
 
 
-//POST route => to create a new todo
+//POST route => to create a new project
 router.post('/todos', (req, res) => {
   const { name, completed } = req.body;
   Todo.create({
@@ -34,7 +34,7 @@ router.post('/todos', (req, res) => {
     })
 });
 
-// PUT route => to update a specific todo
+// PUT route => to update a specific project
 router.put('/todo/:id', (req, res) => {
   Todo.findByIdAndUpdate(req.params.id, req.body)
       .then((response) => {
@@ -46,7 +46,7 @@ router.put('/todo/:id', (req, res) => {
 });
 
 
-// DELETE route => to delete a specific todo
+// DELETE route => to delete a specific project
 router.delete('/todo/:id', (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid'});

@@ -29,3 +29,10 @@ export const deleteTodo = (id) => {
                 return responseFromAPI.data;
             });
 }
+
+export const authenticate = () => {
+    return axios.get(`${backendUrl}/api/loggeduser?username=miguel`)
+    .then(responseFromAPI => {
+        return responseFromAPI.data;
+    });
+}

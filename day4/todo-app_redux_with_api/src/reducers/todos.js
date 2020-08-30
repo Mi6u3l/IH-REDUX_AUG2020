@@ -13,7 +13,7 @@ export default function todos(state = [], action) {
         return state.concat([action.todo])
       case TOGGLE_TODO:
         return state.map(todo =>
-          todo._id === action.id ? { ...todo, completed: !todo.completed } : todo
+          todo._id === action.todo._id ? { ...todo, completed: todo.completed } : todo
           )
       case REMOVE_TODO:
         return state.filter((todo) => todo._id !== action.id)

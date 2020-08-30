@@ -59,5 +59,6 @@ app.use(
 const index = require('./routes/index');
 app.use('/', index);
 app.use('/api', require('./routes/todo-routes'));
+app.use('/api', require('./routes/user-routes'));
 
 module.exports = app;

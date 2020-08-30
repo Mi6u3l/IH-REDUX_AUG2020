@@ -60,6 +60,7 @@ export function toggleTodoAction(todo) {
     return dispatch => {
       return updateTodo(todo)
         .then(() => {
+          console.log('todo', todo)
           dispatch(toggleTodoAction(todo));
         })
     };

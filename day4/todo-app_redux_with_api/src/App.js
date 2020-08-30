@@ -3,8 +3,14 @@ import { connect } from "react-redux";
 import './App.css';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
+import { authenticateOnAPI } from './actions/loggedUser';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.handleAuthenticate();
+  }
+
   render() {
     return (
       <div className="App">
@@ -26,4 +32,8 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  handleAuthenticate: () => dispatch(authenticateOnAPI())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
