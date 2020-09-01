@@ -31,7 +31,7 @@ export const deleteTodo = (id) => {
 }
 
 export const authenticate = () => {
-    return axios.get(`${backendUrl}/api/loggeduser?username=miguel`)
+    return axios.get(`${backendUrl}/api/loggeduser?username=miguel&type=admin`)
     .then(responseFromAPI => {
         return responseFromAPI.data;
     });

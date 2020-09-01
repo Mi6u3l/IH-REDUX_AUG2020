@@ -3,7 +3,9 @@ const router = express.Router();
 
 router.get('/loggedUser', (req, res) => {
   const username = req.query.username;
-  res.json({ username, type: "Admin"});
+  const type = req.query.type;
+
+  res.json({ username, type});
 });
 
 module.exports = router;

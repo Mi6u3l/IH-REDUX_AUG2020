@@ -18,7 +18,7 @@ componentDidMount() {
 }
     
   render() {
-    if (this.props.loggedUser) {
+    if (this.props.loggedUser.type === "admin") {
       return (
         <ul>
           {this.props.todos.map((todo)=>{
